@@ -1,0 +1,65 @@
+# Translation of Plugins - Smart Slider 3 - Stable (latest release) in German
+# This file is distributed under the same license as the Plugins - Smart Slider 3 - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2018-08-02 10:47:26+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: de\n"
+"Project-Id-Version: Plugins - Smart Slider 3 - Stable (latest release)\n"
+
+#: includes/integrations/Divi/includes/modules/SmartSlider3/SmartSlider3.php:84
+msgid "Here you can create the content that will be used within the module."
+msgstr "Hier kannst du die Inhalte erstellen, die innerhalb des Moduls benutzt werden."
+
+#. Author URI of the plugin
+msgid "http://nextendweb.com"
+msgstr "http://nextendweb.com"
+
+#. Author of the plugin
+msgid "Nextend"
+msgstr "Nextend"
+
+#. Description of the plugin
+msgid "The perfect all-in-one responsive slider solution for WordPress."
+msgstr "Die perfekte All-in-one-Responsive-Slider-Lösung für WordPress."
+
+#. Plugin URI of the plugin
+msgid "https://smartslider3.com/"
+msgstr "https://smartslider3.com/"
+
+#. Plugin Name of the plugin
+msgid "Smart Slider 3"
+msgstr "Smart Slider 3"
+
+#: includes/integrations/unyson/smartslider/shortcodes/smartslider/config.php:10
+msgid "Media Elements"
+msgstr "Medien-Elemente"
+
+#: includes/integrations/beaver-builder/beaver-builder-module.php:23
+msgid "General"
+msgstr "Allgemein"
+
+#: includes/integrations/beaver-builder/beaver-builder-module.php:12
+msgid "Basic Modules"
+msgstr "Basismodule"
+
+#: includes/integrations/Divi/includes/modules/SmartSlider3/SmartSlider3.php:20
+#: includes/integrations/VisualComposer.php:47
+msgid "Content"
+msgstr "Inhalt"
+
+#: includes/integrations/Divi.php:60
+msgid "This will change the label of the module in the builder for easy identification."
+msgstr "Dies wird die Bezeichnung der Module im Builder ändern, zur einfachen Identifikation."
+
+#: includes/integrations/Divi.php:58
+msgid "Admin Label"
+msgstr "Admin-Bezeichnung"
+
+#: nextend/library/libraries/form/elements/joomlacomponentoptions.php:10
+msgid "behavior.modal"
+msgstr "behavior.modal"
