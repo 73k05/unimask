@@ -60,13 +60,8 @@ class MailChimp_WooCommerce_Admin extends MailChimp_WooCommerce_Options {
 		$options['active_tab'] = 'api_key';
 		$options['mailchimp_list'] = null;
 
-		update_option('mailchimp-woocommerce-validation.store_info', false);
-		update_option('mailchimp-woocommerce-validation.campaign_defaults', false);
-		update_option('mailchimp-woocommerce-validation.newsletter_settings', false);
-		update_option('mailchimp-woocommerce-sync.started_at', false);
-		update_option('mailchimp-woocommerce-sync.completed_at', false);
-		update_option('mailchimp-woocommerce-resource-last-updated', false);
-		update_option('mailchimp-woocommerce-empty_line_item_placeholder', false);
+		// clean database
+		mailchimp_clean_database();
 		
 		// remove user from our marketing status audience
 		mailchimp_remove_communication_status();
@@ -129,13 +124,87 @@ class MailChimp_WooCommerce_Admin extends MailChimp_WooCommerce_Options {
 	 * @since    1.0.0
 	 */
 	public function add_plugin_admin_menu() {
-        add_menu_page(
-            __('Mailchimp - WooCommerce Setup', 'mailchimp-for-woocommerce'),
-            'Mailchimp',
-            mailchimp_get_allowed_capability(),
-            $this->plugin_name,
-            array($this, 'display_plugin_setup_page'), 'data:image/svg+xml;base64,'.$this->mailchimp_svg()
-        );
+		// Add top level menu item
+		add_menu_page(
+			__('Mailchimp - WooCommerce Setup', 'mailchimp-for-woocommerce'),
+			'Mailchimp',
+			mailchimp_get_allowed_capability(),
+			$this->plugin_name,
+			array($this, 'display_plugin_setup_page'), 'data:image/svg+xml;base64,'.$this->mailchimp_svg()
+		);
+		
+		// only shows submenus if initial wizard is complete
+		$show_submenus = ($this->getData('validation.store_info', false) && $this->getData('validation.campaign_defaults', false) && $this->getData('validation.newsletter_settings', false));
+		if ($show_submenus) {
+			// Add submenu items		
+			add_submenu_page( 
+				$this->plugin_name,
+				esc_html__('Overview', 'mailchimp-for-woocommerce'),
+				esc_html__('Overview', 'mailchimp-for-woocommerce'),
+				mailchimp_get_allowed_capability(),
+				$this->plugin_name . '&amp;tab=sync',
+				array($this, 'display_plugin_setup_page')
+			);
+			
+			add_submenu_page( 
+				$this->plugin_name,
+				esc_html__('Store Settings', 'mailchimp-for-woocommerce'),
+				esc_html__('Store Settings', 'mailchimp-for-woocommerce'),
+				mailchimp_get_allowed_capability(),
+				$this->plugin_name . '&amp;tab=store_info',
+				array($this, 'display_plugin_setup_page')
+			);
+			
+			add_submenu_page( 
+				$this->plugin_name,
+				esc_html__('Audience Defaults', 'mailchimp-for-woocommerce'),
+				esc_html__('Audience Defaults', 'mailchimp-for-woocommerce'),
+				mailchimp_get_allowed_capability(),
+				$this->plugin_name . '&amp;tab=campaign_defaults',
+				array($this, 'display_plugin_setup_page')
+			);
+			
+			add_submenu_page( 
+				$this->plugin_name,
+				esc_html__('Audience Settings', 'mailchimp-for-woocommerce'),
+				esc_html__('Audience Settings', 'mailchimp-for-woocommerce'),
+				mailchimp_get_allowed_capability(),
+				$this->plugin_name . '&amp;tab=newsletter_settings',
+				array($this, 'display_plugin_setup_page')
+			);
+			
+			add_submenu_page( 
+				$this->plugin_name,
+				esc_html__('Logs', 'mailchimp-for-woocommerce'),
+				esc_html__('Logs', 'mailchimp-for-woocommerce'),
+				mailchimp_get_allowed_capability(),
+				$this->plugin_name . '&amp;tab=logs',
+				array($this, 'display_plugin_setup_page')
+			);
+			
+			// Remove submenu duplicate of top level menu item
+			remove_submenu_page( $this->plugin_name, $this->plugin_name );
+
+		}
+	}
+	
+	/**
+	 * Highlight correct item on admin plugin's submenu
+	 * 
+	 * because of the nature of our settings pages being all the same url as opposed to separate php files, 
+	 * we need to force highlight on correct item based on the $_GET[tab] param.
+	 * 
+	 * @since    2.4.1
+	 */
+	function highlight_admin_menu($parent_file){
+		global $current_screen;
+		global $submenu_file;
+
+		if( $current_screen->base == 'toplevel_page_mailchimp-woocommerce' ) :
+			$submenu_file = $parent_file . (isset($_GET['tab']) ? "&amp;tab=" . $_GET['tab'] : "&amp;tab=sync");
+		endif;
+		
+		return $parent_file;
 	}
 
 	/**
@@ -1158,9 +1227,6 @@ class MailChimp_WooCommerce_Admin extends MailChimp_WooCommerce_Options {
 										if (response.promo_rules_in_mailchimp == 0) {
 											promo_rulesProgress = 0;
 											promo_rulesPartial = "0 / " + response.promo_rules_in_store;
-										} else if (response.promo_rules_in_mailchimp == response.promo_rules_in_store) {
-											promo_rulesProgress =  (100 / Math.ceil(response.promo_rules_in_store / 5) + 1) * (response.promo_rules_page - 1) ;
-											promo_rulesPartial = (((response.promo_rules_page - 1) * 5) < response.promo_rules_in_mailchimp ? (response.promo_rules_page - 1) * 5 : response.promo_rules_in_mailchimp)  + " / " + response.promo_rules_in_store;
 										} else {
 											promo_rulesProgress = response.promo_rules_in_mailchimp / response.promo_rules_in_store * 100
 											promo_rulesPartial = response.promo_rules_in_mailchimp + " / " + response.promo_rules_in_store;
@@ -1178,9 +1244,6 @@ class MailChimp_WooCommerce_Admin extends MailChimp_WooCommerce_Options {
 										if (response.products_in_mailchimp == 0) {
 											productsProgress = 0;
 											productsPartial = "0 / " + response.products_in_store;
-										} else if (response.products_in_mailchimp == response.products_in_store) {
-											productsProgress =  (100 / Math.ceil(response.products_in_store / 5) + 1) * (response.products_page - 1) ;
-											productsPartial = (((response.products_page - 1) * 5) < response.products_in_mailchimp ? (response.products_page - 1) * 5 : response.products_in_mailchimp)  + " / " + response.products_in_store;
 										} else {
 											productsProgress = response.products_in_mailchimp / response.products_in_store * 100
 											productsPartial = response.products_in_mailchimp + " / " + response.products_in_store;
@@ -1198,9 +1261,6 @@ class MailChimp_WooCommerce_Admin extends MailChimp_WooCommerce_Options {
 										if (response.orders_in_mailchimp == 0) {
 											ordersProgress = 0;
 											ordersPartial = "0 / " + response.orders_in_store;
-										} else if (response.orders_in_mailchimp == response.orders_in_store) {
-											ordersProgress =  (100 / Math.ceil(response.orders_in_store / 5) + 1) * (response.orders_page - 1) ;
-											ordersPartial = (((response.orders_page - 1) * 5) < response.orders_in_mailchimp ? (response.orders_page - 1) * 5 : response.orders_in_mailchimp)  + " / " + response.orders_in_store;
 										} else {
 											ordersProgress = response.orders_in_mailchimp / response.orders_in_store * 100
 											ordersPartial = response.orders_in_mailchimp + " / " + response.orders_in_store;
@@ -1266,6 +1326,10 @@ class MailChimp_WooCommerce_Admin extends MailChimp_WooCommerce_Options {
         // set the store name if the list id is not set.
 		if (empty($list_id)) {
             $submission->setName($data['store_name']);
+			if (isset($data['admin_email']) && !empty($data['admin_email'])) {
+				$submission->setNotifyOnSubscribe($data['admin_email']);
+				$submission->setNotifyOnUnSubscribe($data['admin_email']);
+			}
         }
 
 		// set the campaign defaults
@@ -1278,11 +1342,6 @@ class MailChimp_WooCommerce_Admin extends MailChimp_WooCommerce_Options {
 
 		// set the permission reminder message.
 		$submission->setPermissionReminder($data['campaign_permission_reminder']);
-
-		if (isset($data['admin_email']) && !empty($data['admin_email'])) {
-			$submission->setNotifyOnSubscribe($data['admin_email']);
-			$submission->setNotifyOnUnSubscribe($data['admin_email']);
-		}
 
 		$submission->setContact($this->address($data));
 
@@ -1471,13 +1530,14 @@ class MailChimp_WooCommerce_Admin extends MailChimp_WooCommerce_Options {
 	    // delete the transient so this only happens one time.
 	    delete_site_transient('mailchimp_woocommerce_start_sync');
 
-        $coupon_sync = new MailChimp_WooCommerce_Process_Coupons_Initial_Sync();
-
+		$full_sync = new MailChimp_WooCommerce_Process_Full_Sync_Manager();
+		
         // tell Mailchimp that we're syncing
-        $coupon_sync->flagStartSync();
-
-        // queue up the jobs
-        mailchimp_handle_or_queue($coupon_sync, 0);
+		$full_sync->start_sync();
+		
+        // enqueue sync manager
+		as_enqueue_async_action( 'MailChimp_WooCommerce_Process_Full_Sync_Manager', array(), 'mc-woocommerce' );
+	
 	}
 
 	/**

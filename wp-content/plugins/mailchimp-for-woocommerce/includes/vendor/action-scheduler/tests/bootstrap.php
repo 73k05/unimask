@@ -29,6 +29,3 @@ if ( class_exists( 'PHPUnit\Framework\TestResult' ) ) { // PHPUnit 6.0 or newer
 } else {
 	include_once('phpunit/deprecated/ActionScheduler_UnitTestCase.php');
 }
-
-include_once('phpunit/ActionScheduler_Mocker.php');
-include_once('phpunit/ActionScheduler_Mock_Async_Request_QueueRunner.php');
