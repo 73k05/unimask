@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - WooCommerce - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-04-08 08:58:29+0000\n"
+"PO-Revision-Date: 2020-04-27 12:20:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -47,10 +47,6 @@ msgstr "Il semble qu’une ou plusieurs tables de la base de données étaient m
 #: includes/admin/views/html-notice-redirect-only-download.php:18
 msgid "Your store is configured to serve digital products using \"Redirect only\" method. This method is deprecated, <a href=\"%s\">please switch to  a different method instead.</a><br><em>If you use a remote server for downloadable files (such as Google Drive, Dropbox, Amazon S3), the right method will automatically be used, so select any of the other options to make this notice go away.</em>"
 msgstr "Votre boutique est configurée pour prendre en charge les produits numériques en mode « Rediriger uniquement ». Ce mode est obsolète, <a href=\"%s\">veuillez en choisir un autre.</a><br><em>Si vous utilisez un serveur distant pour les fichiers téléchargeables (par exemple Google Drive, Dropbox ou Amazon S3), la bonne méthode sera automatiquement appliquée. Sélectionnez donc l’une des autres options pour faire disparaître cet avis.</em>"
-
-#: packages/woocommerce-admin/dist/app/index.js:27
-msgid "Later Today"
-msgstr "Ultérieurement aujourd’hui"
 
 #: packages/woocommerce-admin/dist/app/index.js:27
 msgid "There was an error activating %s. Please try again."
@@ -109,10 +105,6 @@ msgid "There was an error getting your reviews. Please try again."
 msgstr "Une erreur est survenue lors de l'obtention des avis. Veuillez réessayer."
 
 #: packages/woocommerce-admin/dist/app/index.js:27
-msgid "Your customers haven't started reviewing your products."
-msgstr "Vos clients n'ont pas commencé à donner commenter vos produits."
-
-#: packages/woocommerce-admin/dist/app/index.js:27
 msgid "Awesome, you've moderated all of your product reviews. How about responding to some of those negative reviews?"
 msgstr "Excellent, vous avez modéré tous les avis sur vos produits. Comment répondre aux avis négatifs ?"
 
@@ -137,16 +129,8 @@ msgid "{{productLink}}%s{{/productLink}} reviewed by {{authorLink}}%s{{/authorLi
 msgstr "{{productLink}}%s{{/productLink}} ayant reçu un avis de {{authorLink}}%s{{/authorLink}}"
 
 #: packages/woocommerce-admin/dist/app/index.js:27
-msgid "No products with low stock"
-msgstr "Le stock d'aucun produit est faible"
-
-#: packages/woocommerce-admin/dist/app/index.js:27
 msgid "There was an error getting your low stock products. Please try again."
 msgstr "Une erreur est survenue lors de l'obtention des produits dont le stock est faible. Veuillez réessayer."
-
-#: packages/woocommerce-admin/dist/app/index.js:27
-msgid "You currently have no products running low on stock."
-msgstr "Le stock d'aucun de vos produits n'est actuellement faible."
 
 #: packages/woocommerce-admin/dist/app/index.js:27
 msgid "Your stock is in good shape."
@@ -257,6 +241,22 @@ msgid "Inbox"
 msgstr "Boîte de réception"
 
 #: packages/woocommerce-admin/dist/app/index.js:27
+msgid "You currently have no products running low on stock."
+msgstr "Vous n’avez pas actuellement de produit en stock faible."
+
+#: packages/woocommerce-admin/dist/app/index.js:27
+msgid "No products with low stock"
+msgstr "Aucun produit en stock faible."
+
+#: packages/woocommerce-admin/dist/app/index.js:27
+msgid "Your customers haven't started reviewing your products."
+msgstr "Vos clients n’ont pas commencé à noter vos produits."
+
+#: packages/woocommerce-admin/dist/app/index.js:27
+msgid "Later Today"
+msgstr "Ultérieurement dans la journée"
+
+#: packages/woocommerce-admin/dist/app/index.js:27
 msgid "Business Details"
 msgstr "Détails relatifs à l'entreprise"
 
@@ -319,10 +319,6 @@ msgstr "Votre thème est en cours de chargement"
 #: packages/woocommerce-admin/dist/app/index.js:27
 msgid "Uploading theme"
 msgstr "Chargement du thème"
-
-#: packages/woocommerce-admin/dist/app/index.js:27
-msgid "Drop files to upload"
-msgstr "Déposez vos fichiers pour les mettre en ligne"
 
 #: packages/woocommerce-admin/dist/app/index.js:27
 msgid "This will help us configure your store and get you started quickly"
@@ -523,6 +519,10 @@ msgstr "Commencer"
 #: packages/woocommerce-admin/dist/app/index.js:27
 msgid "Mobile App"
 msgstr "Appli mobile"
+
+#: packages/woocommerce-admin/dist/app/index.js:27
+msgid "Drop files to upload"
+msgstr "Déposez vos fichiers à mettre en ligne"
 
 #: packages/woocommerce-admin/dist/app/index.js:27
 msgid "Tell us about your business"
@@ -4172,12 +4172,6 @@ msgstr "Activer le suivi de l'utilisation"
 msgid "Review"
 msgstr "Avis"
 
-#. translators: 1: open link to WooCommerce.com settings, 2: open link to
-#. WooCommerce.com tracking documentation, 3: close link tag.
-#: packages/woocommerce-admin/src/Notes/WC_Admin_Notes_Tracking_Opt_In.php:58
-msgid "Gathering usage data allows us to improve WooCommerce. Your store will be considered as we evaluate new features, judge the quality of an update, or determine if an improvement makes sense. You can always visit the %1$sSettings%3$s and choose to stop sharing data. %2$sRead more%3$s about what data we collect."
-msgstr "Récupérer les données d'utilisation nous permet d'améliorer WooCommerce. Votre boutique sera prise en compte lors de l'évaluation des nouvelles fonctionnalités et de la qualité d'une mise à jour, ou pour déterminer l'intérêt d'une amélioration. Vous pouvez toujours consulter les %1$sParamètres%3$s et choisir d'interrompre le partage des données. %2$sEn savoir plus%3$s sur les données que nous collectons."
-
 #: packages/woocommerce-admin/src/Notes/WC_Admin_Notes_Giving_Feedback_Notes.php:53
 msgid "If you like WooCommerce Admin please leave us a 5 star rating. A huge thanks in advance!"
 msgstr "Si vous aimez WooCommerce Admin, n'hésitez pas à nous laisser une note de 5 étoiles. Un grand merci d'avance !"
@@ -4193,6 +4187,12 @@ msgstr "Ignorer la configuration"
 #: packages/woocommerce-admin/src/Notes/WC_Admin_Notes_Onboarding_Profiler.php:54
 msgid "Continue Store Setup"
 msgstr "Poursuivre la configuration de la boutique"
+
+#. translators: 1: open link to WooCommerce.com settings, 2: open link to
+#. WooCommerce.com tracking documentation, 3: close link tag.
+#: packages/woocommerce-admin/src/Notes/WC_Admin_Notes_Tracking_Opt_In.php:58
+msgid "Gathering usage data allows us to improve WooCommerce. Your store will be considered as we evaluate new features, judge the quality of an update, or determine if an improvement makes sense. You can always visit the %1$sSettings%3$s and choose to stop sharing data. %2$sRead more%3$s about what data we collect."
+msgstr "Récupérer les données d'utilisation nous permet d'améliorer WooCommerce. Votre boutique sera prise en compte lors de l'évaluation des nouvelles fonctionnalités et de la qualité d'une mise à jour, ou pour déterminer l'intérêt d'une amélioration. Vous pouvez toujours consulter les %1$sParamètres%3$s et choisir d'interrompre le partage des données. %2$sEn savoir plus%3$s sur les données que nous collectons."
 
 #: packages/woocommerce-admin/src/Notes/WC_Admin_Notes_Onboarding_Profiler.php:46
 msgid "We're here to help you going through the most important steps to get your store up and running."
@@ -4673,6 +4673,18 @@ msgstr "Pays/région"
 msgid "View progress →"
 msgstr "Voir la progression \t"
 
+#: packages/woocommerce-blocks/src/BlockTypes/ProductCategories.php:170
+msgid "List of categories"
+msgstr "Liste des catégories"
+
+#: packages/woocommerce-blocks/src/BlockTypes/ProductCategories.php:171
+msgid "List of categories with their product counts"
+msgstr "Liste des catégories avec le nombre de produits"
+
+#: packages/woocommerce-blocks/src/BlockTypes/AbstractProductGrid.php:432
+msgid "Product on sale"
+msgstr "Produit en promotion"
+
 #: packages/woocommerce-blocks/assets/js/components/grid-layout-control/index.js:62
 #: packages/woocommerce-blocks/build/all-products.js:1
 #: packages/woocommerce-blocks/build/product-on-sale.js:1
@@ -4691,18 +4703,6 @@ msgstr "Voir la progression \t"
 #: packages/woocommerce-blocks/build/product-tag.js:1
 msgid "The last inner block will follow other content."
 msgstr "Le dernier bloc intérieur suivra l'autre contenu."
-
-#: packages/woocommerce-blocks/src/BlockTypes/ProductCategories.php:170
-msgid "List of categories"
-msgstr "Liste des catégories"
-
-#: packages/woocommerce-blocks/src/BlockTypes/ProductCategories.php:171
-msgid "List of categories with their product counts"
-msgstr "Liste des catégories avec le nombre de produits"
-
-#: packages/woocommerce-blocks/src/BlockTypes/AbstractProductGrid.php:432
-msgid "Product on sale"
-msgstr "Produit en promotion"
 
 #: packages/woocommerce-blocks/assets/js/components/grid-layout-control/index.js:58
 #: packages/woocommerce-blocks/build/all-products.js:1
@@ -5300,6 +5300,16 @@ msgstr "Ce produit est génial, je l’adore !"
 msgid "Bob"
 msgstr "Marc"
 
+#: packages/woocommerce-blocks/assets/js/previews/reviews.js:37
+#: packages/woocommerce-blocks/build/reviews-by-product-legacy.js:1
+#: packages/woocommerce-blocks/build/reviews-by-product.js:1
+#: packages/woocommerce-blocks/build/reviews-by-category.js:1
+#: packages/woocommerce-blocks/build/all-reviews-legacy.js:1
+#: packages/woocommerce-blocks/build/all-reviews.js:1
+#: packages/woocommerce-blocks/build/reviews-by-category-legacy.js:1
+msgid "July 12, 2019"
+msgstr "12 juillet 2019"
+
 #: packages/woocommerce-blocks/assets/js/components/error-placeholder/error-message.js:19
 #: packages/woocommerce-blocks/build/handpicked-products.js:1
 #: packages/woocommerce-blocks/build/featured-category.js:1
@@ -5327,16 +5337,6 @@ msgstr "Marc"
 #: packages/woocommerce-blocks/build/reviews-by-category-legacy.js:1
 msgid "The following error was returned"
 msgstr "L'erreur suivante a été retournée"
-
-#: packages/woocommerce-blocks/assets/js/previews/reviews.js:37
-#: packages/woocommerce-blocks/build/reviews-by-product-legacy.js:1
-#: packages/woocommerce-blocks/build/reviews-by-product.js:1
-#: packages/woocommerce-blocks/build/reviews-by-category.js:1
-#: packages/woocommerce-blocks/build/all-reviews-legacy.js:1
-#: packages/woocommerce-blocks/build/all-reviews.js:1
-#: packages/woocommerce-blocks/build/reviews-by-category-legacy.js:1
-msgid "July 12, 2019"
-msgstr "12 juillet 2019"
 
 #: packages/woocommerce-blocks/assets/js/previews/reviews.js:23
 #: packages/woocommerce-blocks/build/reviews-by-product-legacy.js:1
@@ -22835,10 +22835,6 @@ msgstr "Moyen"
 msgid "Not that bad"
 msgstr "Pas mal"
 
-#: templates/single-product-reviews.php:141
-msgid "Only logged in customers who have purchased this product may leave a review."
-msgstr "Seulement les clients connectés ayant acheté ce produit peuvent laisser un avis."
-
 #: templates/product-searchform.php:26
 msgctxt "submit button"
 msgid "Search"
@@ -22851,10 +22847,6 @@ msgstr "Vous n&rsquo;avez pas encore défini ce type d&rsquo;adresse."
 #: templates/order/form-tracking.php:27
 msgid "Found in your order confirmation email."
 msgstr "Présent dans l&rsquo;e-mail de confirmation."
-
-#: templates/single-product-reviews.php:64
-msgid "There are no reviews yet."
-msgstr "Il n&rsquo;y pas encore d&rsquo;avis."
 
 #. translators: %s is product title
 #: templates/single-product-reviews.php:77
@@ -22957,6 +22949,14 @@ msgstr "Votre note"
 #: templates/order/form-tracking.php:25
 msgid "To track your order please enter your Order ID in the box below and press the \"Track\" button. This was given to you on your receipt and in the confirmation email you should have received."
 msgstr "Pour suivre votre commande veuillez saisir votre ID de commande dans la boite ci-dessous et cliquer le bouton « Suivre ». Il vous a été donné sur votre reçu et dans l’e-mail de confirmation que vous avez du recevoir."
+
+#: templates/single-product-reviews.php:141
+msgid "Only logged in customers who have purchased this product may leave a review."
+msgstr "Seuls les clients connectés ayant acheté ce produit ont la possibilité de laisser un avis."
+
+#: templates/single-product-reviews.php:64
+msgid "There are no reviews yet."
+msgstr "Il n’y a pas encore d’avis."
 
 #: includes/shortcodes/class-wc-shortcode-checkout.php:93
 #: includes/shortcodes/class-wc-shortcode-checkout.php:216
