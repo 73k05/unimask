@@ -77,3 +77,4 @@ if ( version_compare( get_bloginfo( 'version' ), '4.7.3', '>=' ) && ( is_admin()
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 //remove default sorting drop-down from WooCommerce
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+remove_action( 'woocommerce_before_shop_loop' , 'woocommerce_result_count', 20 );
