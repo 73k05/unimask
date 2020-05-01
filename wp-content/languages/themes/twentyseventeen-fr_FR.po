@@ -23,13 +23,13 @@ msgstr "Twenty Seventeen"
 msgid "Footer"
 msgstr "Pied de page"
 
-#: functions.php:340
-msgid "Add widgets here to appear in your sidebar on blog posts and archive pages."
-msgstr "Ajoutez ici des widgets pour les faire apparaître dans votre colonne latérale d’articles de blog ou de pages d’archives."
-
 #: functions.php:338 sidebar.php:18
 msgid "Blog Sidebar"
 msgstr "Colonne latérale du blog"
+
+#: functions.php:340
+msgid "Add widgets here to appear in your sidebar on blog posts and archive pages."
+msgstr "Ajoutez ici des widgets pour les faire apparaître dans votre colonne latérale d’articles de blog ou de pages d’archives."
 
 #: template-parts/header/site-branding.php:34
 #: template-parts/navigation/navigation-top.php:31
@@ -98,14 +98,6 @@ msgstr "par %s"
 msgid "Please define an SVG icon filename."
 msgstr "Veuillez définir un nom de fichier d’icône SVG."
 
-#: inc/icon-functions.php:39
-msgid "Please define default parameters in the form of an array."
-msgstr "Veuillez définir les paramètres par défaut sous forme d’un tableau."
-
-#: inc/customizer.php:143
-msgid "Select pages to feature in each area from the dropdowns. Add an image to a section by setting a featured image in the page editor. Empty sections will not be displayed."
-msgstr "Sélectionnez les pages à mettre en avant dans chaque zone depuis la liste déroulante. Ajoutez une image à la section en définissant une image mise en avant dans l’éditeur de page. Les sections vides ne s’afficheront pas."
-
 #. translators: %d: The front page section number.
 #: inc/customizer.php:142
 msgid "Front Page Section %d Content"
@@ -127,10 +119,6 @@ msgstr "Mise en page de page"
 msgid "Theme Options"
 msgstr "Options du thème"
 
-#: inc/customizer.php:64
-msgid "Custom"
-msgstr "Personnalisé"
-
 #: inc/customizer.php:62
 msgid "Light"
 msgstr "Clair"
@@ -143,6 +131,18 @@ msgstr "Jeu de couleurs"
 msgid "Default Header Image"
 msgstr "Image d’en-tête par défaut"
 
+#: inc/customizer.php:64
+msgid "Custom"
+msgstr "Personnalisé"
+
+#: inc/icon-functions.php:39
+msgid "Please define default parameters in the form of an array."
+msgstr "Veuillez définir les paramètres par défaut sous forme d’un tableau."
+
+#: inc/customizer.php:143
+msgid "Select pages to feature in each area from the dropdowns. Add an image to a section by setting a featured image in the page editor. Empty sections will not be displayed."
+msgstr "Sélectionnez les pages à mettre en avant dans chaque zone depuis la liste déroulante. Ajoutez une image à la section en définissant une image mise en avant dans l’éditeur de page. Les sections vides ne s’afficheront pas."
+
 #: functions.php:362
 msgid "Footer 2"
 msgstr "Pied de page 2"
@@ -150,6 +150,10 @@ msgstr "Pied de page 2"
 #: functions.php:352 functions.php:364
 msgid "Add widgets here to appear in your footer."
 msgstr "Ajoutez ici des widgets qui apparaîtront dans votre pied de page."
+
+#: comments.php:62
+msgid "Reply"
+msgstr "Répondre"
 
 #: functions.php:350
 msgid "Footer 1"
@@ -165,14 +169,6 @@ msgstr "on"
 msgid "Top Menu"
 msgstr "Menu supérieur"
 
-#: comments.php:62
-msgid "Reply"
-msgstr "Répondre"
-
-#: template-parts/post/content-none.php:33
-msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
-msgstr "Il semble que ce que vous cherchez est introuvable. Essayez avec une recherche."
-
 #: search.php:59
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr "Désolé, mais rien ne correspond à votre recherche. Veuillez réessayer avec des mots différents."
@@ -180,10 +176,6 @@ msgstr "Désolé, mais rien ne correspond à votre recherche. Veuillez réessaye
 #: template-parts/post/content-none.php:17 search.php:26
 msgid "Nothing Found"
 msgstr "Aucun résultat"
-
-#: single.php:33
-msgid "Previous Post"
-msgstr "Article précédent"
 
 #: single.php:33 comments.php:71
 msgid "Previous"
@@ -193,49 +185,23 @@ msgstr "Précédent"
 msgid "Next"
 msgstr "Suivant"
 
-#: searchform.php:20
-msgctxt "submit button"
-msgid "Search"
-msgstr "Recherche"
+#: template-parts/post/content-none.php:33
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "Il semble que ce que vous cherchez est introuvable. Essayez avec une recherche."
 
 #: searchform.php:19
 msgctxt "placeholder"
 msgid "Search &hellip;"
 msgstr "Recherche&hellip;"
 
-#: searchform.php:17
-msgctxt "label"
-msgid "Search for:"
-msgstr "Recherche pour :"
+#: searchform.php:20
+msgctxt "submit button"
+msgid "Search"
+msgstr "Recherche"
 
-#. translators: Search query.
-#: search.php:22
-msgid "Search Results for: %s"
-msgstr "Résultats de recherche pour : %s"
-
-#. translators: %s: Post title.
-#: template-parts/post/content.php:57 template-parts/post/content-audio.php:84
-#: template-parts/post/content-image.php:61
-#: template-parts/post/content-video.php:83
-#: template-parts/post/content-gallery.php:71
-#: template-parts/page/content-front-page.php:42
-#: template-parts/page/content-front-page-panels.php:45 functions.php:392
-msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
-msgstr "Continuer la lecture<span class=\"screen-reader-text\"> de &laquo;&nbsp;%s&nbsp;&raquo;</span>"
-
-#: inc/customizer.php:63
-msgid "Dark"
-msgstr "Foncé"
-
-#. translators: %s: The current WordPress version.
-#: inc/back-compat.php:40 inc/back-compat.php:54 inc/back-compat.php:73
-msgid "Twenty Seventeen requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again."
-msgstr "Twenty Seventeen ne fonctionne qu’à partir de WordPress 4.7. Vous utilisez la version %s. Veuillez mettre à niveau et réessayer."
-
-#. translators: %s: Post title.
-#: inc/template-tags.php:117
-msgid "Edit<span class=\"screen-reader-text\"> \"%s\"</span>"
-msgstr "Modifier<span class=\"screen-reader-text\"> \"%s\"</span>"
+#: single.php:33
+msgid "Previous Post"
+msgstr "Article précédent"
 
 #: template-parts/post/content.php:64 template-parts/post/content-audio.php:91
 #: template-parts/post/content-image.php:68
@@ -253,52 +219,21 @@ msgstr "Menu"
 msgid "Skip to content"
 msgstr "Aller au contenu principal"
 
-#: functions.php:484
-msgid "Collapse child menu"
-msgstr "Fermer le sous-menu"
-
-#: functions.php:483
-msgid "Expand child menu"
-msgstr "Ouvrir le sous-menu"
-
 #: functions.php:65 functions.php:216
 msgid "Social Links Menu"
 msgstr "Menu des liens de réseaux sociaux"
-
-#. translators: %s: WordPress
-#: template-parts/footer/site-info.php:21
-msgid "Proudly powered by %s"
-msgstr "Fièrement propulsé par %s"
-
-#: footer.php:26
-msgid "Footer Social Links Menu"
-msgstr "Menu de liens sociaux de pied de page"
 
 #: comments.php:82
 msgid "Comments are closed."
 msgstr "Les commentaires sont fermés."
 
-#. translators: 1: Number of comments, 2: Post title.
-#: comments.php:41
-msgctxt "comments title"
-msgid "%1$s Reply to &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s Replies to &ldquo;%2$s&rdquo;"
-msgstr[0] "%1$s réponse sur &ldquo;%2$s&rdquo;"
-msgstr[1] "%1$s réponses sur &ldquo;%2$s&rdquo;"
-
-#. translators: %s: Post title.
-#: comments.php:37
-msgctxt "comments title"
-msgid "One Reply to &ldquo;%s&rdquo;"
-msgstr "Une réponse sur &ldquo;%s&rdquo;"
-
 #: index.php:55 archive.php:51 search.php:52
 msgid "Page"
 msgstr "Page"
 
-#: 404.php:21
-msgid "Oops! That page can&rsquo;t be found."
-msgstr "Aie&nbsp;! Cette page est introuvable."
+#: index.php:54 archive.php:50 search.php:51
+msgid "Next page"
+msgstr "Page suivante"
 
 #: 404.php:24
 msgid "It looks like nothing was found at this location. Maybe try a search?"
@@ -308,17 +243,82 @@ msgstr "Apparemment, rien n&rsquo;a été trouvé à cette adresse. Essayez avec
 msgid "Previous page"
 msgstr "Page précédente"
 
-#: index.php:54 archive.php:50 search.php:51
-msgid "Next page"
-msgstr "Page suivante"
+#: inc/customizer.php:63
+msgid "Dark"
+msgstr "Foncé"
 
-#. Author of the theme
-msgid "the WordPress team"
-msgstr "l’équipe WordPress"
+#. translators: %s: WordPress
+#: template-parts/footer/site-info.php:21
+msgid "Proudly powered by %s"
+msgstr "Fièrement propulsé par %s"
+
+#: searchform.php:17
+msgctxt "label"
+msgid "Search for:"
+msgstr "Recherche pour :"
+
+#. translators: %s: Post title.
+#: inc/template-tags.php:117
+msgid "Edit<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "Modifier<span class=\"screen-reader-text\"> \"%s\"</span>"
+
+#. translators: %s: Post title.
+#: template-parts/post/content.php:57 template-parts/post/content-audio.php:84
+#: template-parts/post/content-image.php:61
+#: template-parts/post/content-video.php:83
+#: template-parts/post/content-gallery.php:71
+#: template-parts/page/content-front-page.php:42
+#: template-parts/page/content-front-page-panels.php:45 functions.php:392
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "Continuer la lecture<span class=\"screen-reader-text\"> de &laquo;&nbsp;%s&nbsp;&raquo;</span>"
+
+#: functions.php:484
+msgid "Collapse child menu"
+msgstr "Fermer le sous-menu"
+
+#: functions.php:483
+msgid "Expand child menu"
+msgstr "Ouvrir le sous-menu"
+
+#: footer.php:26
+msgid "Footer Social Links Menu"
+msgstr "Menu de liens sociaux de pied de page"
+
+#. translators: 1: Number of comments, 2: Post title.
+#: comments.php:41
+msgctxt "comments title"
+msgid "%1$s Reply to &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Replies to &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s réponse sur &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s réponses sur &ldquo;%2$s&rdquo;"
+
+#: 404.php:21
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Aie&nbsp;! Cette page est introuvable."
+
+#. translators: %s: The current WordPress version.
+#: inc/back-compat.php:40 inc/back-compat.php:54 inc/back-compat.php:73
+msgid "Twenty Seventeen requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again."
+msgstr "Twenty Seventeen ne fonctionne qu’à partir de WordPress 4.7. Vous utilisez la version %s. Veuillez mettre à niveau et réessayer."
+
+#. translators: Search query.
+#: search.php:22
+msgid "Search Results for: %s"
+msgstr "Résultats de recherche pour : %s"
+
+#. translators: %s: Post title.
+#: comments.php:37
+msgctxt "comments title"
+msgid "One Reply to &ldquo;%s&rdquo;"
+msgstr "Une réponse sur &ldquo;%s&rdquo;"
 
 #. Theme URI of the theme
 msgid "https://wordpress.org/themes/twentyseventeen/"
 msgstr "https://wordpress.org/themes/twentyseventeen/"
+
+#. Author of the theme
+msgid "the WordPress team"
+msgstr "l’équipe WordPress"
 
 #. Author URI of the theme
 #: template-parts/footer/site-info.php:18
